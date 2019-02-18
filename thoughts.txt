@@ -1,0 +1,3 @@
+i think i need to have a table of exercise entries that has a day ID, unique id, and all the other data
+
+id     name      sets     reps     weight     volume     dayid     etc

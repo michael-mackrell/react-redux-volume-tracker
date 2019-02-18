@@ -1,0 +1,22 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import registerServiceWorker from './registerServiceWorker';
+import TrainingDay from '../src/components/TrainingDay'
+import { BrowserRouter, Route} from 'react-router-dom';
+import { Provider } from 'react-redux';
+import VolumeTracking from '../src/components/volume/VolumeTracking'
+import store from './store';
+
+ReactDOM.render(
+
+<Provider store={store}>
+<BrowserRouter>
+    <div>
+      <Route exact path="/" component={App}/>
+      <Route path="/trainingday:text/:id"  component={TrainingDay} />
+      <Route path="/volumetracking"  component={VolumeTracking} />
+    </div>
+  </BrowserRouter>
+  </Provider>, document.getElementById('root'));
+registerServiceWorker();
