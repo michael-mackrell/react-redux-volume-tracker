@@ -16,7 +16,11 @@ class App extends Component {
         <div className="App">
           <AppNavbar />
           <Container>
+
+            
+
             <DayModal />
+            &nbsp;
             <DayList />
             
           </Container>

@@ -48,67 +48,94 @@ render() {
 let inputText, inputSets, inputReps, inputWeight, numbersInvalid
 const { days } = this.props.day;
 const  id  = this.props.match.params.id 
+const dayName = this.props.match.params.text;
+console.log(days);
 return(
   <div className="exercise-day">
-      <table>
-        <tbody>
-          <tr>
-            <td>
-              <form onSubmit={e => {
-                  e.preventDefault()
-                  if (!inputText.value.trim() || !inputSets.value.trim() || !inputReps.value.trim() || !inputWeight.value.trim()) {
-                    return
-                  }
+      &nbsp;
+        <h1 className="header">
+          {dayName}
+        </h1>
+    
 
-                  //calculated once because used twice
-                  let weightArray = this.makeWeightArray(inputWeight.value)
+      &nbsp;
+      &nbsp;
+      &nbsp;
+      &nbsp;
 
-                  numbersInvalid = this.errorValidateExercises(inputSets.value, inputReps.value);
-
-                  this.props.addExerciseToDay({
-                    exName: inputText.value,
-                    sets: parseInt(inputSets.value),
-                    reps: parseInt(inputReps.value),
-                    weight: weightArray,
-                    volume: this.calculateVolume(parseInt(inputSets.value), parseInt(inputReps.value), weightArray),
-                    dayId: id
-                    }
-                  )
-                  inputText.value = ''
-                  inputSets.value = null
-                  inputReps.value = null
-                  inputWeight.value = null
-                }}>
-                  <input placeholder="Exercise" ref={node => inputText = node} />
-                  <input placeholder="Sets" ref={node => inputSets = node} />
-                  <input placeholder="Reps" ref={node => inputReps = node} />
-                  <input placeholder="Weight" ref={node => inputWeight = node} />
-                  <br/>
-                  <Button
-                      color="dark"
-                      type="submit"
-                      >
-                      Add Exercise
-                  </Button>
-
-                  {numbersInvalid ? <div>Please use numbers for set, reps, and weight</div> : <span></span>}
-              </form>
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-            </td>
-
-          </tr>
-        </tbody>
-      </table>
-
-      
       <div>
       {(days.length > 0) ?/*find a way to sanitize this against 12/12/2012 format*/  <ExerciseList day={days.find(day => day._id === id)} id={id}></ExerciseList> : <p>list loading</p>}
 
       </div>
+      &nbsp;
+      &nbsp;
+
+
+  <div className="exercise-form-container"> 
+  &nbsp;
+    <table className="exercise-form">
+      <tbody>
+        <tr>
+          <td>
+            <form  onSubmit={e => {
+                e.preventDefault()
+                if (!inputText.value.trim() || !inputSets.value.trim() || !inputReps.value.trim() || !inputWeight.value.trim()) {
+                  return
+                }
+
+                //calculated once because used twice
+                let weightArray = this.makeWeightArray(inputWeight.value)
+
+                numbersInvalid = this.errorValidateExercises(inputSets.value, inputReps.value);
+
+                this.props.addExerciseToDay({
+                  exName: inputText.value,
+                  sets: parseInt(inputSets.value),
+                  reps: parseInt(inputReps.value),
+                  weight: weightArray,
+                  volume: this.calculateVolume(parseInt(inputSets.value), parseInt(inputReps.value), weightArray),
+                  dayId: id
+                  }
+                )
+                inputText.value = ''
+                inputSets.value = null
+                inputReps.value = null
+                inputWeight.value = null
+              }}>
+              <div>
+                <input placeholder="Exercise" ref={node => inputText = node} />
+                <input placeholder="Sets" ref={node => inputSets = node} />
+                <input placeholder="Reps" ref={node => inputReps = node} />
+                <input placeholder="Weight" ref={node => inputWeight = node} />
+
+              </div>
+
+              &nbsp;
+              &nbsp;
+              &nbsp;
+
+              <div className="centered-button">
+                <Button
+                  type="submit"
+                  >
+                  Add Exercise
+              </Button>
+              </div>
+                
+
+                {numbersInvalid ? <div>Please use numbers for set, reps, and weight</div> : <span></span>}
+            </form>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+          </td>
+
+        </tr>
+      </tbody>
+    </table>
+    </div>
 
     </div>
 )}   

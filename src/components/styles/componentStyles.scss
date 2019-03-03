@@ -1,14 +1,74 @@
-.exercise-day {
-    margin: auto;
+.centered-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.exercise-form-container {
+    max-width: 60vw;
+    margin: auto;
+    background-color: #212529;
+    border-radius: 2em;
+    box-shadow: 0px 0px 69px 6px rgba(0,0,0,0.75);
+    
+}
+
+.exercise-form {
+    max-width: 60vw;
+    margin: auto;
+    input {
+        border-radius: .5em;
+        background-color: gray;
+        border: none;
+    }
+}
+
+::placeholder { /* Most modern browsers support this now. */
+    color: #212529;
+ }
 
 .exercise-table {
-    max-width: 80vw;
-    width: 40vw;
+    max-width: 60vw;
     margin: auto;
-    color: red;
+    border-radius: 2em;
+    box-shadow: 0px 0px 69px 6px rgba(0,0,0,0.75);
+    .top-td {
+         border-top: none;
+    }
 }
 
-.red {
-    font-size: 10vh;
+.header {
+    text-align: center;
 }
+
+
+.day-list {
+    padding: 0;
+    
+    li {
+        background-color: #212529 !important;
+        box-shadow: 0px 0px 59px 6px rgba(0,0,0,0.75);
+        margin: .5em 0 .5em 0;
+        border-radius: .5em;
+    }
+
+    a {
+        color: white;
+    }
+
+
+    
+}
+
+
+.volume-graph-container {
+    background-color: #212529;
+}
+
+
+// background-image: linear-gradient(to right, #D1D1D1 0%,#ffffff 49%,#D1D1D1 100%);
+
+// height: 60vh;
+// width: 80%;
+// margin: auto;
+// margin-bottom: 5vh;

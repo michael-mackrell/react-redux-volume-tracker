@@ -6,6 +6,7 @@ import { getDays, deleteDay } from '../actions/dayActions';
 import VolumeTracking from './volume/VolumeTracking'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
+import "./styles/componentStyles.scss";
 
 class DayList extends Component {
   componentDidMount() {
@@ -53,12 +54,14 @@ class DayList extends Component {
     const { days } = this.props.day;
     return (
       <Container>
-        <Row>
-          <Col>
-          <ListGroup>
-            <TransitionGroup className="day-list">
+     
+        <Row >
+          <Col >
+          <ul className="day-list">
+            <TransitionGroup >
               {days.map(({ _id, name }) => (
                 <CSSTransition key={_id} timeout={500} classNames="fade">
+            
                   <ListGroupItem>
                     <Button
                       className="remove-btn"
@@ -71,19 +74,22 @@ class DayList extends Component {
                   
                     <Link to={"/trainingday" + name + "/" + _id}  >{name}</Link>
                   </ListGroupItem>
+            
                 </CSSTransition>
               ))}
             </TransitionGroup>
-          </ListGroup>
+          </ul>
           </Col>
           
         </Row>
-        &nbsp;
         <Row>
-        <Col>
-          {(days.length > 0) ?  <VolumeTracking exerciseList={this.makeAllExercisesAndCombineVolumes(days)}  ></VolumeTracking> : <p>list loading</p>}
+          <Col>
+            {(days.length > 0) ?  <VolumeTracking exerciseList={this.makeAllExercisesAndCombineVolumes(days)}  ></VolumeTracking> : <p>list loading</p>}
           </Col>
         </Row>
+
+          
+
       </Container>
     );
   }
