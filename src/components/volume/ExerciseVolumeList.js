@@ -25,7 +25,7 @@ const ExerciseVolumeList = ({ exerciseVolumeData }) => {
 
 
 
-    : <p>Select an exercise to graph volume</p>}
+    : <p></p>}
   </div> 
 )}
 

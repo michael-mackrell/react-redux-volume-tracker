@@ -1,6 +1,8 @@
 import React from 'react'
 import ExerciseEntry from './ExerciseEntry';
 import { Table } from 'reactstrap';
+import "./styles/componentStyles.scss";
+
 
 
 const ExerciseList = ({ day, id }) => {
@@ -10,14 +12,14 @@ const ExerciseList = ({ day, id }) => {
 
   let exercises = day.exercises
  return (
-  <div>
-    <Table  dark bordered>
+  <div className="exercise-table">
+    <Table  dark bordered  >
       <tbody>
         <tr>
-          <td contenteditable="true" >Exercise</td>
-          <td contenteditable="true">Sets</td>
-          <td contenteditable="true">Reps</td>
-          <td contenteditable="true">Weight</td>
+          <td className="red">Exercise</td>
+          <td>Sets</td>
+          <td>Reps</td>
+          <td>Weight</td>
         </tr>
         {exercises.map(exercise => 
         <ExerciseEntry

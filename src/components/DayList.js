@@ -76,7 +76,11 @@ class DayList extends Component {
             </TransitionGroup>
           </ListGroup>
           </Col>
-          <Col>
+          
+        </Row>
+        &nbsp;
+        <Row>
+        <Col>
           {(days.length > 0) ?  <VolumeTracking exerciseList={this.makeAllExercisesAndCombineVolumes(days)}  ></VolumeTracking> : <p>list loading</p>}
           </Col>
         </Row>

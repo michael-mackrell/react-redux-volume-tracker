@@ -37,8 +37,6 @@ render() {
 const ArrayofAllExercises = this.props.exerciseList;
 let nonDuplicateExerciseArray = [...new Set(ArrayofAllExercises.map(item => item.exerciseName))];
 
-//console.log(ArrayofAllExercises);
-//console.log(nonDuplicateExerciseArray)
 return(
     <div>
 
@@ -46,7 +44,7 @@ return(
 
       <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
         <DropdownToggle caret>
-          Button Dropdown
+          Select Exercise
         </DropdownToggle>
         <DropdownMenu>
           {nonDuplicateExerciseArray.map((entry,i) => 
