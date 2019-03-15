@@ -44,7 +44,7 @@ export const removeExercise = exercise => dispatch => {
   axios.put(`/api/days/deleteExercise/${exercise.dayId}/${exercise.exId}`, exercise).then(res => {
     dispatch({
       type: DELETE_EXERCISE,
-      payload: res.data
+      payload: exercise
     })
   }
     

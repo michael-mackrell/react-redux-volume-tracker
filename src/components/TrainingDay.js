@@ -49,7 +49,6 @@ let inputText, inputSets, inputReps, inputWeight, numbersInvalid
 const { days } = this.props.day;
 const  id  = this.props.match.params.id 
 const dayName = this.props.match.params.text;
-console.log(days);
 return(
   <div className="exercise-day">
       &nbsp;

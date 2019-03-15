@@ -60,7 +60,6 @@ export default function(state = initialState, action) {
             
           }
         }
-        console.log(stateArray)
       return stateArray
 
     case ADD_ENTRY_TO_DAY:
@@ -75,57 +74,28 @@ export default function(state = initialState, action) {
           volume: action.payload.volume,
           dayId: action.payload.dayId}]
       ]
-
-
-
+      
     case DELETE_EXERCISE:
-console.log(action.payload.day._id)
-console.log(state.days[action.payload.day._id])
-    let indexOfExercise
-    for (let i = 0; i < state.days.length; i++) {
+      for (let i = 0; i < state.days.length; i++) {
 
-      if (state.days[i]._id === action.payload.day._id){
-        return        [...state[action.payload.dayId].exercises, state.days[indexOfExercise].exercises.filter(exercise => exercise._id !== action.payload._id) ]      }
-    }
+        if (state.days[i]._id === action.payload.dayId){
 
-    
-    
+          //const updatedArray = {...state.days[i].exercises.filter(exercise => exercise._id !== action.payload.exId)};
+          const modThisDay = {...state.days[i], exercises: state.days[i].exercises.filter(exercise => exercise._id !== action.payload.exId)};
 
+          return  {
+            ...state,
+            days: [
+              ...state.days.slice(0, i),
+              modThisDay,
+              ...state.days.slice(i + 1)
+            
+            ] 
+          };
+        }
+      }
 
     default:
       return state;
   }
 }
-
-
-
-
-
-
-
-// case ADD_ENTRY_TO_DAY:
-  
-//       var stateArray = [...state]
-//       stateArray[action.payload.dayId].exercises.push({
-//         exName: action.payload.text,
-//         sets: action.payload.sets,
-//         reps: action.payload.reps,
-//         weight: action.payload.weight,
-//         volume: action.payload.volume,
-//         dayId: action.payload.dayId})
-//       return stateArray
-
-
-
-
-// var stateArray = state//get the day from the state
-
-
-// for (let i = 0; i < stateArray.days.length; i++) {
-
-//   if (stateArray.days[i]._id === action.payload.day._id){
-
-//     stateArray.days[i].exercises = stateArray.days[i].exercises.filter(exercise => exercise._id !== action.payload._id)
-   
-//   }
-// }
