@@ -63,33 +63,49 @@ export default function(state = initialState, action) {
       return stateArray
 
     case ADD_ENTRY_TO_DAY:
-  
-      return [
-        ...state[action.payload.dayId].exercises,
-          [...state[action.payload.dayId].exercises, {
-          exName: action.payload.text,
+    console.log(action.payload);
+
+
+    
+    for (let i = 0; i < state.days.length; i++) {
+
+      if (state.days[i]._id === action.payload.dayId){
+        const modThisDay = {...state.days[i], exercises: state.days[i].exercises.concat([{
+          exName: action.payload.exName,
           sets: action.payload.sets,
           reps: action.payload.reps,
           weight: action.payload.weight,
           volume: action.payload.volume,
-          dayId: action.payload.dayId}]
-      ]
+          dayId: action.payload.dayId,
+          exId: state.days[i].exercises.length}])};
+          console.log(state.days[i].exercises)
+
+        return  {
+          ...state,
+          days: [
+            ...state.days.slice(0, i),
+            modThisDay,
+            ...state.days.slice(i + 1)
+          ] 
+        };
+
+        
+      }
+    }
       
     case DELETE_EXERCISE:
       for (let i = 0; i < state.days.length; i++) {
 
         if (state.days[i]._id === action.payload.dayId){
-
-          //const updatedArray = {...state.days[i].exercises.filter(exercise => exercise._id !== action.payload.exId)};
-          const modThisDay = {...state.days[i], exercises: state.days[i].exercises.filter(exercise => exercise._id !== action.payload.exId)};
-
+          
+          const modThisDay = {...state.days[i], exercises: state.days[i].exercises.filter(exercise => exercise.exId !== action.payload.exId)};
+          console.log(modThisDay);
           return  {
             ...state,
             days: [
               ...state.days.slice(0, i),
               modThisDay,
               ...state.days.slice(i + 1)
-            
             ] 
           };
         }
@@ -99,3 +115,17 @@ export default function(state = initialState, action) {
       return state;
   }
 }
+
+
+
+
+// return [
+//   ...state[action.payload.dayId].exercises,
+//     [...state[action.payload.dayId].exercises, {
+//     exName: action.payload.text,
+//     sets: action.payload.sets,
+//     reps: action.payload.reps,
+//     weight: action.payload.weight,
+//     volume: action.payload.volume,
+//     dayId: action.payload.dayId}]
+// ]

@@ -39,8 +39,6 @@ export const editExercise = exercise => dispatch => {
 }
 
 export const removeExercise = exercise => dispatch => {  
-  console.log("2q")
-  console.log(exercise)
   axios.put(`/api/days/deleteExercise/${exercise.dayId}/${exercise.exId}`, exercise).then(res => {
     dispatch({
       type: DELETE_EXERCISE,

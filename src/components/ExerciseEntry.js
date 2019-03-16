@@ -11,7 +11,7 @@ class ExerciseEntry extends Component {
     }
 
     updateExercise = (exerciseId, dayId, setParam, repParam, weightParam, nameParam) => {
-        console.log(exerciseId)
+        
         this.props.editExercise({
             exId: exerciseId,
             dayId: dayId,
@@ -29,7 +29,6 @@ class ExerciseEntry extends Component {
             exId: exerciseId,
             dayId: dayId,
         })
-        console.log("1")
     }
     
     calculateVolume = (sets, reps, weight) => {
@@ -49,6 +48,7 @@ class ExerciseEntry extends Component {
         const reps = editReps =  this.props.reps
         const weight = editWeight = this.props.weight
         const exName = editText = this.props.exName
+        const exId = this.props.exId;
 
         if (this.state.editable){ // css need to make the inputs the same size as the table data containers
             return (
@@ -60,7 +60,8 @@ class ExerciseEntry extends Component {
                 <td><Button  onClick={() => { this.updateExercise(_id, dayId, editSets.value, editReps.value, editWeight.value, editText.value); this.setState({editable: false});}}>
                             Save
                         </Button></td>
-                        <td><Button  onClick={() => { this.deleteExercise(_id, dayId); this.setState({editable: false});}}>
+                        <td><Button  onClick={() => { 
+                            this.deleteExercise(exId, dayId); this.setState({editable: false});}}>
                             Delete
                         </Button></td>
             </tr>
@@ -75,7 +76,7 @@ class ExerciseEntry extends Component {
                 <td><Button  onClick={() => {this.setState({editable: true})}}>
                             Update
                         </Button></td>
-                        <td><Button  onClick={() => { this.deleteExercise(_id, dayId); this.setState({editable: false});}}>
+                        <td><Button  onClick={() => { this.deleteExercise(exId, dayId); this.setState({editable: false});}}>
                             Delete
                         </Button></td>
             </tr>
