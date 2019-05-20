@@ -23,6 +23,11 @@
     }
 }
 
+.addDayButton{
+    margin: 15px !important;
+    color: blue;
+}
+
 ::placeholder { /* Most modern browsers support this now. */
     color: #212529;
  }
@@ -46,20 +51,17 @@
     padding: 0;
     
     li {
-        background-color: #212529 !important;
-        box-shadow: 0px 0px 59px 6px rgba(0,0,0,0.75);
+        background-color: #343a40 !important;
+        box-shadow: 0px 0px 59px 1px rgba(0,0,0,0.75);
         margin: .5em 0 .5em 0;
         border-radius: .5em;
+        width: 50%;
     }
 
     a {
         color: white;
     }
-
-
-    
 }
-
 
 .volume-graph-container {
     background-color: #212529;

@@ -50,7 +50,7 @@ class ExerciseEntry extends Component {
         const exName = editText = this.props.exName
         const exId = this.props.exId;
 
-        if (this.state.editable){ // css need to make the inputs the same size as the table data containers
+        if (this.state.editable){ 
             return (
                 <tr>
                 <td><input defaultValue={exName} ref={node => editText = node}/> </td>

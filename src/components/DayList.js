@@ -47,14 +47,13 @@ class DayList extends Component {
   }
 
 
-  
+
 
 
   render() {
     const { days } = this.props.day;
     return (
       <Container>
-     
         <Row >
           <Col >
           <ul className="day-list">

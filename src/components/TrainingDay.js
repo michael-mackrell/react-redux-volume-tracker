@@ -19,7 +19,6 @@ class TrainingDay extends Component {
    * @param {string of weights going in} weightString 
    */
   makeWeightArray(weightString){
-    ////////////////////////////////////////////////////need to have error validation code that makes sure the weight array. length is the same as sets
     let weightStringArray = weightString.split(" ")
     for (let i = 0; i < weightStringArray.length; i++){
       weightStringArray[i] = parseInt(weightStringArray[i])
@@ -63,7 +62,7 @@ return(
       &nbsp;
 
       <div>
-      {(days.length > 0) ?/*find a way to sanitize this against 12/12/2012 format*/  <ExerciseList day={days.find(day => day._id === id)} id={id}></ExerciseList> : <p>list loading</p>}
+      {(days.length > 0) ?  <ExerciseList day={days.find(day => day._id === id)} id={id}></ExerciseList> : <p>list loading</p>}
 
       </div>
       &nbsp;
@@ -126,7 +125,6 @@ return(
             </form>
           </td>
         </tr>
-
         <tr>
           <td>
           </td>

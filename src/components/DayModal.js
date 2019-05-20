@@ -11,6 +11,7 @@ import {
 } from 'reactstrap';
 import { connect } from 'react-redux';
 import { addDay } from '../actions/dayActions';
+import "./styles/componentStyles.scss";
 
 class DayModal extends Component {
   state = {
@@ -47,6 +48,7 @@ class DayModal extends Component {
       <div>
         <Button
           color="dark"
+          className="addDayButton"
           style={{ marginBottom: '2rem' }}
           onClick={this.toggle}
         >

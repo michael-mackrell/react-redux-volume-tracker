@@ -7,10 +7,7 @@ import "./styles/componentStyles.scss";
 
 const ExerciseList = ({ day, id }) => {
 
-
-
-
-  let exercises = day.exercises
+ let exercises = day.exercises
  return (
   <div >
     <Table  dark className="exercise-table"  >
